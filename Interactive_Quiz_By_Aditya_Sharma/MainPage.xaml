@@ -15,7 +15,8 @@
                 x:Name="title"
                 Text="Question Title"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
+                FontSize="35"
+                    TextColor="Aqua"
                 HorizontalOptions="Center" />
 
             </HorizontalStackLayout>
@@ -23,6 +24,7 @@
                 HorizontalOptions="Center">
                 <Label
                 x:Name="question"
+                    
                 
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="25"
@@ -36,6 +38,7 @@
                 <Button
                 x:Name="Option1"
                     Text="Option 1"
+                    BackgroundColor="azure"
                 
                 Clicked="OnOption1Clicked"
                  />
@@ -44,11 +47,13 @@
                     x:Name="Option2"
                 
                 Text="Option 2"
+                    BackgroundColor="azure"
                     Clicked="OnOption2Clicked"
                 
                  />
                 <Button
                     x:Name="Option3"
+                    BackgroundColor="azure"
                     Clicked="OnOption3Clicked"
                 
                 Text="Option 3"
@@ -56,6 +61,7 @@
                  />
                 <Button
                     x:Name="Option4"
+                    BackgroundColor="azure"
                     Clicked="OnOption4Clicked"
                 
                 Text="Option 4"
@@ -75,8 +81,10 @@
                 <Button
                 x:Name="NextBtn"
                 Text="Next"
+                    Clicked="OnNextClicked"
                 WidthRequest="100"
                  />
+                <Button                x:Name="Score"                Margin="10"                FontSize="20"                WidthRequest="100"                                Text="Score" />
 
 
             </HorizontalStackLayout>
