@@ -46,7 +46,7 @@
                 <Button
                     x:Name="Option2"
                 
-                Text="Option 2"
+                Text="Option2"
                     BackgroundColor="azure"
                     Clicked="OnOption2Clicked"
                 
@@ -75,7 +75,8 @@
                 HorizontalOptions="Center">
                 <Button
                 x:Name="PreviousBtn"
-                Text="Previous"
+                Text="Exit"
+                    Clicked="OnExit"
                 WidthRequest="100"
                  />
                 <Button
@@ -84,7 +85,13 @@
                     Clicked="OnNextClicked"
                 WidthRequest="100"
                  />
-                <Button                x:Name="Score"                Margin="10"                FontSize="20"                WidthRequest="100"                                Text="Score" />
+                <Button
+                x:Name="Score"
+                Margin="10"
+                FontSize="20"
+                WidthRequest="100"
+                
+                Text="Score" />
 
 
             </HorizontalStackLayout>

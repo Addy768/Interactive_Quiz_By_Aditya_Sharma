@@ -1,4 +1,6 @@
-﻿namespace Interactive_Quiz_By_Aditya_Sharma;
+﻿using System.Diagnostics;
+
+namespace Interactive_Quiz_By_Aditya_Sharma;
 
 public partial class MainPage : ContentPage
 {
@@ -31,7 +33,7 @@ public partial class MainPage : ContentPage
     {
         String userAnswer;
         int _currentQuestionIndex = _quiz.GetCurrentques();
-        if (_currentQuestionIndex <= 5)
+        if (_currentQuestionIndex <= 4)
         {
             Option1.Text = _quiz.OnOption1();
             Option2.Text = _quiz.OnOption2();
@@ -39,7 +41,7 @@ public partial class MainPage : ContentPage
             Option4.Text = _quiz.OnOption4();
             userAnswer = _quiz.ForAnswer();
         }
-        if (_currentQuestionIndex > 5)
+        if (_currentQuestionIndex > 4)
         {
             Option1.IsVisible = false;
             Option2.Text = "True";
@@ -56,17 +58,12 @@ public partial class MainPage : ContentPage
         userAnswer = _quiz.OnOption1();
 
 
-        if (_quiz.CheckUserAnswer( userAnswer))
-        {
-            Option1.BackgroundColor = Colors.Green;
-        }
-        else
-        {
-            Option1.BackgroundColor = Colors.Red;
-        }
-        Option4.IsVisible = false;
-        Option2.IsVisible = false;
-        Option3.IsVisible = false;
+        bool isUserAnswerCorrect = _quiz.CheckUserAnswer(userAnswer);
+        Option1.BackgroundColor = isUserAnswerCorrect ? Colors.Green : Colors.Red; //ternary operator
+
+        Option4.IsEnabled = false;
+        Option2.IsEnabled = false;
+        Option3.IsEnabled = false;
 
 
     }
@@ -83,17 +80,12 @@ public partial class MainPage : ContentPage
             userAnswer = "True";
         }
 
-        if (_quiz.CheckUserAnswer(userAnswer))
-        {
-            Option2.BackgroundColor = Colors.Green;
-        }
-        else
-        {
-            Option2.BackgroundColor = Colors.Red;
-        }
-        Option1.IsVisible = false;
-        Option3.IsVisible = false;
-        Option4.IsVisible = false;
+        bool isUserAnswerCorrect = _quiz.CheckUserAnswer(userAnswer);
+        Option2.BackgroundColor = isUserAnswerCorrect ? Colors.Green : Colors.Red;
+
+        Option1.IsEnabled = false;
+        Option3.IsEnabled = false;
+        Option4.IsEnabled = false;
 
     }
     private void OnOption3Clicked(object sender, EventArgs e)
@@ -107,19 +99,12 @@ public partial class MainPage : ContentPage
             userAnswer = "False";
         }
 
+        bool isUserAnswerCorrect = _quiz.CheckUserAnswer(userAnswer);
+        Option3.BackgroundColor = isUserAnswerCorrect ? Colors.Green : Colors.Red;
 
-        if (_quiz.CheckUserAnswer(userAnswer))
-        {
-            Option3.BackgroundColor = Colors.Green;
-
-        }
-        else
-        {
-            Option3.BackgroundColor = Colors.Red;
-        }
-        Option1.IsVisible = false;
-        Option2.IsVisible = false;
-        Option4.IsVisible = false;
+        Option1.IsEnabled = false;
+        Option2.IsEnabled = false;
+        Option4.IsEnabled = false;
 
 
     }
@@ -128,30 +113,30 @@ public partial class MainPage : ContentPage
         userAnswer = _quiz.OnOption4();
 
 
-        if (_quiz.CheckUserAnswer(userAnswer))
-        {
-            Option4.BackgroundColor = Colors.Green;
-        }
-        else
-        {
-            Option4.BackgroundColor = Colors.Red;
-        }
-        Option1.IsVisible = false;
-        Option2.IsVisible = false;
-        Option3.IsVisible = false;
+        bool isUserAnswerCorrect = _quiz.CheckUserAnswer(userAnswer);
+        Option4.BackgroundColor = isUserAnswerCorrect ? Colors.Green : Colors.Red;
+        
+        Option1.IsEnabled = false;
+        Option2.IsEnabled = false;
+        Option3.IsEnabled = false;
 
 
 
 
 
     }
+    //Button exitButton = new Button
+    //{
+    //    Text = "Exit"
+    //};
+
     private void OnNextClicked(object sender, EventArgs e)
     {
 
-        if (_quiz.GetCurrentques() == 10)
+        if (_quiz.GetCurrentques() == 9)
         {
 
-            DisplayAlert("Score", $"You scored {_quiz.Score} out of {_quiz.GetCurrentques()} questions. You got {_quiz.Point} points out of {_quiz.ForTotalPoints()}", "OK");
+            DisplayAlert("Score", $"You scored {_quiz.Score} out of {_quiz.GetCurrentques() +1} questions.", "OK");
 
         }
         else
@@ -174,6 +159,11 @@ public partial class MainPage : ContentPage
             button.BackgroundColor = Colors.White;
             button.IsEnabled = true;
         }
+    }
+    private void OnExitClicked(object sender, EventArgs e)
+    { 
+
+
     }
 }
 
