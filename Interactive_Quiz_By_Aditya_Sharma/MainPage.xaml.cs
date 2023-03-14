@@ -161,8 +161,8 @@ public partial class MainPage : ContentPage
         }
     }
     private void OnExitClicked(object sender, EventArgs e)
-    { 
-
+    {
+        Application.Current?.CloseWindow(Application.Current.MainPage.Window);
 
     }
 }

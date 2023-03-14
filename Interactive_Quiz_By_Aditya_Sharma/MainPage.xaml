@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Interactive_Quiz_By_Aditya_Sharma.MainPage">
+             x:Class="Interactive_Quiz_By_Aditya_Sharma.MainPage"
+             BackgroundColor="DimGrey"
+             >
 
-    <ScrollView>
+    <ScrollView BackgroundColor="DimGrey">
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
@@ -16,7 +18,7 @@
                 Text="Question Title"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="35"
-                    TextColor="Aqua"
+                    TextColor="BlanchedAlmond"
                 HorizontalOptions="Center" />
 
             </HorizontalStackLayout>
@@ -72,11 +74,11 @@
             <HorizontalStackLayout
                 Spacing="30"
                 Padding="20"
-                HorizontalOptions="Center">
+                HorizontalOptions="Center" BackgroundColor="#AAABAC">
                 <Button
                 x:Name="PreviousBtn"
                 Text="Exit"
-                    Clicked="OnExit"
+                    Clicked="OnExitClicked"
                 WidthRequest="100"
                  />
                 <Button
@@ -85,13 +87,7 @@
                     Clicked="OnNextClicked"
                 WidthRequest="100"
                  />
-                <Button
-                x:Name="Score"
-                Margin="10"
-                FontSize="20"
-                WidthRequest="100"
                 
-                Text="Score" />
 
 
             </HorizontalStackLayout>
